@@ -33,5 +33,15 @@ namespace QuestionsAPI.Controllers
 
         }
 
+        [HttpGet]
+        [Route("api/GetQuestionById")]
+        public async Task<IActionResult> GetQuestionById(int questionID)
+        {
+            var question = await _quizDB.Questions.FindAsync(questionID);
+            return Ok(question);
+        }
+
+
+
     }
 }

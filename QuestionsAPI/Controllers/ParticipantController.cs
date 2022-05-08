@@ -24,7 +24,7 @@ namespace QuestionsAPI.Controllers
         }
 
         [HttpGet]
-        [Route("api/GetParticipanyById")]
+        [Route("api/GetPaticipantById")]
         public async Task<IActionResult> GetPaticipantById(int participantId)
         {
             var participant = await _quizDB.Participants.FindAsync(participantId);
@@ -33,12 +33,12 @@ namespace QuestionsAPI.Controllers
         }
 
         [HttpPost]
-        [Route("api/InsertPartipants")]
+        [Route("api/InsertParticipants")]
         public async Task<IActionResult> InsertParticipant(Participants participants)
         {
             _quizDB.Add(participants);
             await _quizDB.SaveChangesAsync();
-            return Created($"/api/GetParticipanyById?participantId={participants.ParticipantID}", participants);
+            return Created($"/api/GetPaticipantById?participantId={participants.ParticipantID}", participants);
         }
 
     }
