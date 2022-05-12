@@ -41,6 +41,32 @@ namespace QuestionsAPI.Controllers
             return Ok(question);
         }
 
+        [HttpPost]
+        [Route("api/GetAnswersById")]
+        public async Task<IActionResult> GetAnswers([FromBody] int[] qIDs)
+        {
+
+            var questions = await _quizDB.Questions.ToListAsync();
+
+            var answers = questions.AsEnumerable()
+                .Where(q => qIDs.Contains(q.QuestionID))
+                .OrderBy(x => { return Array.IndexOf(qIDs, x.QuestionID); })
+                .Select(z => z.Answer)
+                .ToArray();
+
+            return Ok(answers);
+        }
+
+
+        //[HttpPost]
+
+        //public string GetAnswers(string qIDs)
+        //{
+
+
+
+        //    return qIDs;
+        //}
 
 
     }
