@@ -7,7 +7,6 @@ namespace QuestionsAPI.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [System.Text.Json.Serialization.JsonIgnore]
         public int ParticipantID { get; set; }
         public string Name { get; set; }
         public int Score { get; set; }

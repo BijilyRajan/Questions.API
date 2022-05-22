@@ -58,16 +58,6 @@ namespace QuestionsAPI.Controllers
         }
 
 
-        //[HttpPost]
-
-        //public string GetAnswers(string qIDs)
-        //{
-
-
-
-        //    return qIDs;
-        //}
-
 
     }
 }

@@ -41,5 +41,15 @@ namespace QuestionsAPI.Controllers
             return Created($"/api/GetPaticipantById?participantId={participants.ParticipantID}", participants);
         }
 
+        [HttpPost]
+        [Route("api/UpdateScore")]
+        public async Task<ActionResult> UpdateScore(Participants participants)
+        {
+            _quizDB.Entry(participants).State = EntityState.Modified;
+            await _quizDB.SaveChangesAsync();
+            return Ok();
+
+        }
+
     }
 }
